@@ -20,7 +20,9 @@ const Home: NextPage<HomePropsI> = ({ exploreData, cardsData }) => {
 
       <main className="mx-auto max-w-7xl px-8 sm:px-16">
         <section className="pt-6">
-          <h2 className="pb-5 text-4xl font-semibold">Explore Nearby</h2>
+          <h2 className="pt-5 pb-5 text-3xl font-semibold">
+            설레는 다음 여행을 위한 아이디어
+          </h2>
           {/* Pull data from a server - API  */}
           <div className="gird-cols-1 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {exploreData?.map((item: ExploreDataI) => (
@@ -34,7 +36,9 @@ const Home: NextPage<HomePropsI> = ({ exploreData, cardsData }) => {
           </div>
         </section>
         <section>
-          <h2 className="py-8 text-4xl font-semibold">Live Anywhere</h2>
+          <h2 className="pt-8 pb-5 text-3xl font-semibold">
+            어디서나 에어비앤비와 함께
+          </h2>
           <div className="-ml-3 flex space-x-3 overflow-scroll p-3 scrollbar-hide">
             {cardsData?.map((item: CardsDataI) => (
               <MediumCard key={item.img} img={item.img} title={item.title} />
@@ -44,9 +48,9 @@ const Home: NextPage<HomePropsI> = ({ exploreData, cardsData }) => {
 
         <LargeCard
           img="https://links.papareact.com/4cj"
-          title="The Greatest Outdoors"
-          description="Wishlists curated by Airbnb"
-          buttonText="Get Inspired"
+          title="에어비앤비 체험 둘러보기"
+          description="여행 중 만나는 이색적인 즐길 거리"
+          buttonText="온라인 체험"
         />
       </main>
 
