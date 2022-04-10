@@ -8,7 +8,7 @@ import MediumCard from '../components/MediumCard'
 import LargeCard from '../components/LargeCard'
 import Footer from '../components/Footer'
 
-const Home: NextPage = ({ exploreData, cardsData }: any) => {
+const Home: NextPage<HomePropsI> = ({ exploreData, cardsData }) => {
   return (
     <div className="">
       <Head>
@@ -23,7 +23,7 @@ const Home: NextPage = ({ exploreData, cardsData }: any) => {
           <h2 className="pb-5 text-4xl font-semibold">Explore Nearby</h2>
           {/* Pull data from a server - API  */}
           <div className="gird-cols-1 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {exploreData?.map((item: MainSmallCardI) => (
+            {exploreData?.map((item: ExploreDataI) => (
               <SmallCard
                 key={item.img}
                 img={item.img}
@@ -36,7 +36,7 @@ const Home: NextPage = ({ exploreData, cardsData }: any) => {
         <section>
           <h2 className="py-8 text-4xl font-semibold">Live Anywhere</h2>
           <div className="-ml-3 flex space-x-3 overflow-scroll p-3 scrollbar-hide">
-            {cardsData?.map((item: any) => (
+            {cardsData?.map((item: CardsDataI) => (
               <MediumCard key={item.img} img={item.img} title={item.title} />
             ))}
           </div>
@@ -55,10 +55,20 @@ const Home: NextPage = ({ exploreData, cardsData }: any) => {
   )
 }
 
-interface MainSmallCardI {
+interface ExploreDataI {
   img: string
   location: string
   distance: string
+}
+
+interface CardsDataI {
+  img: string
+  title: string
+}
+
+interface HomePropsI {
+  exploreData: ExploreDataI[]
+  cardsData: CardsDataI[]
 }
 
 export async function getStaticProps() {
