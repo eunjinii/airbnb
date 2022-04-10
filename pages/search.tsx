@@ -63,7 +63,7 @@ const Search: NextPage<SearchComponentPropsI> = ({ searchResults }) => {
 
 export default Search
 
-interface SearchResultI {
+export interface InfoCardI {
   description: string
   img: string
   lat: number
@@ -76,7 +76,7 @@ interface SearchResultI {
 }
 
 interface SearchComponentPropsI {
-  searchResults: SearchResultI[]
+  searchResults: InfoCardI[]
 }
 
 export async function getServerSideProps() {
