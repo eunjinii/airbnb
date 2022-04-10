@@ -15,14 +15,14 @@ import { useRouter } from 'next/router'
 /**
  * @description 상단 검색바
  */
-function Header({ placeholder }) {
+function Header({ placeholder }: HeaderComponentPropsI): JSX.Element {
   const [searchInput, setSearchInput] = useState('')
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
   const [numOfGuests, setNumOfGuests] = useState(1)
   const router = useRouter()
 
-  const handleSelect = (ranges) => {
+  const handleSelect = (ranges: { selection: any }) => {
     setStartDate(ranges.selection.startDate)
     setEndDate(ranges.selection.endDate)
   }
@@ -91,14 +91,14 @@ function Header({ placeholder }) {
             ranges={[selectionRange]}
             minDate={new Date()}
             rangeColors={['#FD5B61']}
-            onChange={handleSelect}
+            onChange={() => handleSelect}
           />
           <div className="mb-4 flex items-center border-b py-5">
             <h2 className="flex-grow text-xl font-semibold">게스트 추가</h2>
             <UsersIcon className="h-5" />
             <input
               value={numOfGuests}
-              onChange={(e) => setNumOfGuests(e.target.value)}
+              onChange={(e: any) => setNumOfGuests(e.target.value)}
               min={1}
               max={30}
               type="number"
@@ -123,6 +123,10 @@ function Header({ placeholder }) {
       )}
     </header>
   )
+}
+
+interface HeaderComponentPropsI {
+  placeholder?: string
 }
 
 export default Header
