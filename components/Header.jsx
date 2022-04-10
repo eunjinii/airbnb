@@ -12,6 +12,9 @@ import 'react-date-range/dist/styles.css' // main style file
 import 'react-date-range/dist/theme/default.css' // theme css file
 import { useRouter } from 'next/router'
 
+/**
+ * @description 상단 검색바
+ */
 function Header({ placeholder }) {
   const [searchInput, setSearchInput] = useState('')
   const [startDate, setStartDate] = useState(new Date())
@@ -90,10 +93,8 @@ function Header({ placeholder }) {
             rangeColors={['#FD5B61']}
             onChange={handleSelect}
           />
-          <div className="mb-4 flex items-center border-b">
-            <h2 className="flex-grow text-2xl font-semibold">
-              Number of Guests
-            </h2>
+          <div className="mb-4 flex items-center border-b py-5">
+            <h2 className="flex-grow text-xl font-semibold">게스트 추가</h2>
             <UsersIcon className="h-5" />
             <input
               value={numOfGuests}
@@ -109,13 +110,13 @@ function Header({ placeholder }) {
               onClick={resetInput}
               className="flex-grow cursor-pointer text-gray-500"
             >
-              Cancel
+              취소
             </button>
             <button
               onClick={search}
               className="flex-grow cursor-pointer text-red-400"
             >
-              Search
+              검색
             </button>
           </div>
         </div>
