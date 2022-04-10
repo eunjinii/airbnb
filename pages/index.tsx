@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import axios from 'axios'
 import Head from 'next/head'
 import Header from '../components/Header'
 import Banner from '../components/Banner'
@@ -7,7 +8,7 @@ import MediumCard from '../components/MediumCard'
 import LargeCard from '../components/LargeCard'
 import Footer from '../components/Footer'
 
-const Home: NextPage = ({ exploreData, cardsData }) => {
+const Home: NextPage = ({ exploreData, cardsData }: any) => {
   return (
     <div className="">
       <Head>
@@ -36,7 +37,7 @@ const Home: NextPage = ({ exploreData, cardsData }) => {
           <h2 className="py-8 text-4xl font-semibold">Live Anywhere</h2>
           <div className="-ml-3 flex space-x-3 overflow-scroll p-3 scrollbar-hide">
             {cardsData?.map((item: any) => (
-              <MediumCard img={item.img} title={item.title} />
+              <MediumCard key={item.img} img={item.img} title={item.title} />
             ))}
           </div>
         </section>
@@ -61,17 +62,17 @@ interface MainSmallCardI {
 }
 
 export async function getStaticProps() {
-  const exploreData = await fetch('https://links.papareact.com/pyp').then(
-    (res) => res.json()
-  )
-  const cardsData = await fetch('https://links.papareact.com/zp1').then((res) =>
-    res.json()
-  )
-  return {
-    props: {
-      exploreData,
-      cardsData,
-    },
+  try {
+    const exploreData = await axios.get('https://links.papareact.com/pyp')
+    const cardsData = await axios.get('https://links.papareact.com/zp1')
+    return {
+      props: {
+        exploreData: exploreData.data,
+        cardsData: cardsData.data,
+      },
+    }
+  } catch (e) {
+    console.error(e)
   }
 }
 
