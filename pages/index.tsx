@@ -15,7 +15,8 @@ const Home: NextPage<HomePropsI> = ({ exploreData, cardsData }) => {
         <title>Stay at Eunjin's Airbnb</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      {/* FIXME: 데이트피커 타입문제로 Header props 빈문자열 설정 */}
+      <Header placeholder={''} />
       <Banner />
 
       <main className="mx-auto max-w-7xl px-8 sm:px-16">

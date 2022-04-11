@@ -15,14 +15,14 @@ import { useRouter } from 'next/router'
 /**
  * @description 상단 검색바
  */
-function Header({ placeholder }: HeaderComponentPropsI): JSX.Element {
-  const [searchInput, setSearchInput] = useState<string>('')
-  const [startDate, setStartDate] = useState<Date>(new Date())
-  const [endDate, setEndDate] = useState<Date>(new Date())
-  const [numOfGuests, setNumOfGuests] = useState<number>(1)
+function Header({ placeholder }) {
+  const [searchInput, setSearchInput] = useState('')
+  const [startDate, setStartDate] = useState(new Date())
+  const [endDate, setEndDate] = useState(new Date())
+  const [numOfGuests, setNumOfGuests] = useState(1)
   const router = useRouter()
 
-  const handleSelect = (ranges: { selection: any }) => {
+  const handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate)
     setEndDate(ranges.selection.endDate)
   }
@@ -102,7 +102,7 @@ function Header({ placeholder }: HeaderComponentPropsI): JSX.Element {
             <UsersIcon className="h-5" />
             <input
               value={numOfGuests}
-              onChange={(e: any) => setNumOfGuests(e.target.value)}
+              onChange={(e) => setNumOfGuests(e.target.value)}
               min={1}
               max={30}
               type="number"
@@ -129,9 +129,9 @@ function Header({ placeholder }: HeaderComponentPropsI): JSX.Element {
   )
 }
 
-interface HeaderComponentPropsI {
-  placeholder?: string
-}
+// interface HeaderComponentPropsI {
+//   placeholder?: string;
+// }
 
 // interface DatePickerI extends DateRangePicker{
 //     [property: string]: any
