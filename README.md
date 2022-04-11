@@ -1,21 +1,19 @@
-# Next.js + Tailwind CSS Example
+# Airbnb clone site built in Next.js + Tailwind CSS
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+이 프로젝트는 Sonny Sangha의 [유튜브 강의](https://www.youtube.com/channel/UCqeTj_QAnNlmt7FwzNwHZnA)를 수강하며 만든 에어비앤비 클론 사이트입니다. 세부적인 코드는 강의 내용과 다를 수 있습니다.
 
-## Deploy your own
+### Features
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+- 메인페이지, 검색결과 페이지
+- 키워드, 날짜, 인원 기반 검색 기능
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+### Site URL
 
-## How to use
+https://eunjinii-airbnb.netlify.app/
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+### 로컬에서 열기
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+yarn install
+yarn dev
 ```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
