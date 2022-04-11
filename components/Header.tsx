@@ -16,10 +16,10 @@ import { useRouter } from 'next/router'
  * @description 상단 검색바
  */
 function Header({ placeholder }: HeaderComponentPropsI): JSX.Element {
-  const [searchInput, setSearchInput] = useState('')
-  const [startDate, setStartDate] = useState(new Date())
-  const [endDate, setEndDate] = useState(new Date())
-  const [numOfGuests, setNumOfGuests] = useState(1)
+  const [searchInput, setSearchInput] = useState<string>('')
+  const [startDate, setStartDate] = useState<Date>(new Date())
+  const [endDate, setEndDate] = useState<Date>(new Date())
+  const [numOfGuests, setNumOfGuests] = useState<number>(1)
   const router = useRouter()
 
   const handleSelect = (ranges: { selection: any }) => {
@@ -41,6 +41,7 @@ function Header({ placeholder }: HeaderComponentPropsI): JSX.Element {
         numOfGuests,
       },
     })
+    setSearchInput('')
   }
 
   const selectionRange = {
@@ -87,12 +88,15 @@ function Header({ placeholder }: HeaderComponentPropsI): JSX.Element {
       </div>
       {searchInput && (
         <div className="col-span-3 mx-auto flex flex-col">
-          <DateRangePicker
-            ranges={[selectionRange]}
-            minDate={new Date()}
-            rangeColors={['#FD5B61']}
-            onChange={() => handleSelect}
-          />
+          {Object.keys(DateRangePicker).length > 0 && (
+            <DateRangePicker
+              ranges={[selectionRange]}
+              minDate={new Date()}
+              rangeColors={['#FD5B61']}
+              onChange={() => handleSelect}
+            />
+          )}
+
           <div className="mb-4 flex items-center border-b py-5">
             <h2 className="flex-grow text-xl font-semibold">게스트 추가</h2>
             <UsersIcon className="h-5" />
@@ -128,5 +132,9 @@ function Header({ placeholder }: HeaderComponentPropsI): JSX.Element {
 interface HeaderComponentPropsI {
   placeholder?: string
 }
+
+// interface DatePickerI extends DateRangePicker{
+//     [property: string]: any
+// }
 
 export default Header

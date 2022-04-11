@@ -16,7 +16,10 @@ function InfoCard({
   total,
 }: InfoCardI): JSX.Element {
   return (
-    <div className="flex cursor-pointer flex-col border-b py-7 transition duration-200 ease-out first:border-t hover:opacity-80 md:flex-row md:px-2 md:pr-4">
+    <div
+      className="flex cursor-pointer flex-col border-b py-7 transition duration-200 
+    ease-out first:border-t hover:opacity-80 md:flex-row md:px-2 md:pr-4"
+    >
       <div className="relative h-[180px] w-[100%] flex-shrink-0 md:h-52 md:w-80">
         <Image
           className="rounded-xl"
@@ -28,7 +31,7 @@ function InfoCard({
 
       <div className="flex flex-grow flex-col pt-5 md:pt-0 md:pl-5">
         <div className="flex justify-between">
-          <p>{location}</p>
+          <p className="text-gray-500">{location}</p>
           <HeartIcon className="h-7 cursor-pointer" />
         </div>
 
