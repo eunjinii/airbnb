@@ -6,6 +6,8 @@ import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import InfoCard from '../components/InfoCard'
+import Map from '../components/Map'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 const Search: NextPage<SearchComponentPropsI> = ({ searchResults }) => {
   const router = useRouter()
@@ -53,6 +55,10 @@ const Search: NextPage<SearchComponentPropsI> = ({ searchResults }) => {
               />
             ))}
           </div>
+        </section>
+
+        <section className="hidden md:inline-flex md:min-w-[50vw]">
+          <Map searchResults={searchResults} />
         </section>
       </main>
 

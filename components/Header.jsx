@@ -88,14 +88,12 @@ function Header({ placeholder }) {
       </div>
       {searchInput && (
         <div className="col-span-3 mx-auto flex flex-col">
-          {Object.keys(DateRangePicker).length > 0 && (
-            <DateRangePicker
-              ranges={[selectionRange]}
-              minDate={new Date()}
-              rangeColors={['#FD5B61']}
-              onChange={() => handleSelect}
-            />
-          )}
+          <DateRangePicker
+            ranges={[selectionRange]}
+            minDate={new Date()}
+            rangeColors={['#FF5A60']}
+            onChange={handleSelect}
+          />
 
           <div className="mb-4 flex items-center border-b py-5">
             <h2 className="flex-grow text-xl font-semibold">게스트 추가</h2>
@@ -131,10 +129,6 @@ function Header({ placeholder }) {
 
 // interface HeaderComponentPropsI {
 //   placeholder?: string;
-// }
-
-// interface DatePickerI extends DateRangePicker{
-//     [property: string]: any
 // }
 
 export default Header
