@@ -25,9 +25,7 @@ function Map({ searchResults }) {
       {...viewport}
       mapStyle="mapbox://styles/eunjinii/cl1w3v1js008c15qj4oarpi1o"
       mapboxAccessToken={process.env.mapbox_key}
-      onViewportChange={(viewport) => {
-        setViewport(viewport)
-      }}
+      onMove={(viewport) => setViewport(viewport)}
     >
       {searchResults?.map((result) => (
         <div key={result.long}>
