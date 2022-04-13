@@ -6,7 +6,7 @@
 
 - 메인페이지, 검색결과 페이지
 - 키워드, 날짜, 인원 기반 검색 기능
-- Mapbox, geolib,
+- Mapbox, react-map-gl 지도 api 연동
 
 ### Site URL
 
